@@ -30,7 +30,7 @@ const Product = () => {
     };
 
     return (
-        <div className="w-full h-auto flex flex-col p-8 mt-10">
+        <div className="w-full h-auto flex flex-col p-8 mt-10 justify-center items-start">
             <div className="flex flex-col md:flex-row w-full h-full gap-10 items-start justify-center">
                 {/* Product Image */}
                 <div className="w-full md:w-1/3 h-[400px] md:h-[500px] mb-6 md:mb-0">
