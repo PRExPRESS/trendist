@@ -4,9 +4,17 @@ import OrderSummary from '../components/OrderSummary'
 import OrderItem from '../components/OrderItem'
 import BillingDetails from '../components/BillingDetails.tsx'
 import { useCart } from '../context/CartContext.tsx'
-
+import toastr from 'toastr'
+import { useNavigate } from 'react-router-dom'
 const Checkout = () => {
-    const {cart} = useCart();
+    const {cart, checkout} = useCart();
+    const navigate = useNavigate();
+    const handleCheckout = () => {
+        checkout();
+        toastr.success('Your order has been placed successfully!', '', { "closeButton": true });
+        navigate('/');
+    }
+
     return (
         <div className='w-full h-full flex flex-col'>
             <div className="w-full h-full pt-[69px] pb-[65px] bg-pag-title">
@@ -42,7 +50,8 @@ const Checkout = () => {
                     </div>
 
                     <div className="flex justify-end mt-8">
-                        <Button {...({} as any)} color="black" size="lg" className="px-12 py-3 text-white rounded-none">
+                        <Button {...({} as any)} color="black" size="lg" className="px-12 py-3 text-white rounded-none"
+                            onClick={handleCheckout}>
                             Place Order
                         </Button>
                     </div>

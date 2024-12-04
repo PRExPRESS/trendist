@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import CartItem from '../CartItem/CartItem';
 import { Button } from '@material-tailwind/react';
 import { useCart } from '../../context/CartContext';
+import { Link } from 'react-router-dom';
 
 interface Props {
     setIsOpenCart: (value: boolean) => void;
@@ -50,7 +51,7 @@ const Cart = ({ setIsOpenCart }: Props) => {
                         animate={{ x: '0%' }} 
                         exit={{ x: '100%' }} 
                         transition={{ duration: 0.5, ease: 'easeOut' }} 
-                        className="w-4/12 h-full flex flex-col items-center absolute top-0 right-0 bg-white p-3"
+                        className="w-8/12 md:w-4/12 h-full flex flex-col items-center absolute top-0 right-0 bg-white p-3"
                     >
                         <div className="w-full h-16 flex flex-row justify-between items-center p-4 border-b border-line">
                             <h1 className="text-xl font-bold">Shopping Cart</h1>
@@ -60,7 +61,7 @@ const Cart = ({ setIsOpenCart }: Props) => {
                         </div>
 
                         {/* cart items */}
-                        <div className="w-full h-[80vh] overflow-y-auto flex flex-col gap-4 p-4">
+                        <div className="w-full md:h-[80vh] overflow-y-auto flex flex-col gap-4 p-4">
                             {cart.length === 0 ? (
                                 <p>Your cart is empty.</p>
                             ) : (
@@ -75,17 +76,19 @@ const Cart = ({ setIsOpenCart }: Props) => {
                         </div>
 
                         {/* Cart subtotal and checkout */}
-                        <div className="w-full h-16 flex flex-row justify-between items-center p-4 border-t border-line">
+                        <div className="w-full h-16 flex flex-col md:flex-row justify-between items-center p-4 border-t border-line">
                             <div className="flex flex-row gap-4 items-baseline">
                                 <h2 className="text-lg font-bold">Subtotal:</h2>
                                 <h2 className="text-lg font-bold">$ {subtotal.toFixed(2)}</h2>
                             </div>
+                            <Link to="/checkout">
                             <Button
                                 {...({ className: 'w-32 h-10 rounded-none bg-black text-white hover:bg-accent hover:text-white' } as any)}
                                 onClick={() => setIsOpen(false)}
                             >
                                 Checkout
                             </Button>
+                            </Link>
                         </div>
                     </motion.div>
                 )}

@@ -1,10 +1,12 @@
 import React from 'react';
 
 
+
 import LoginForm from '../components/LoginForm';
 import { Link } from 'react-router-dom';
 
 const Login= () => {
+
   return (
     <div className="w-full min-h-screen bg-white text-black py-10 px-6">
       <div className="max-w-md mx-auto">

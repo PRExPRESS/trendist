@@ -7,9 +7,10 @@ interface InputFieldProps {
   type: string;
   value: string;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  error?: string;
 }
 
-const InputField: React.FC<InputFieldProps> = ({ label, name, type, value, onChange }) => {
+const InputField: React.FC<InputFieldProps> = ({ label, name, type, value, onChange  , error }) => {
   return (
     <div>
       <Input {...({} as any)}
@@ -18,8 +19,11 @@ const InputField: React.FC<InputFieldProps> = ({ label, name, type, value, onCha
         type={type}
         value={value}
         onChange={onChange}
-        className="w-full"
+        className={`w-full ${error ? 'border-red-500 ' : ''}`}
       />
+      {
+        error && <p className="text-red-500 text-sm">{error}</p>
+      }
     </div>
   );
 };

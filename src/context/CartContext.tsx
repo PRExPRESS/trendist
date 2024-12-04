@@ -17,6 +17,7 @@ interface CartState {
   increaseQty: (id: number) => void;
   decreaseQty: (id: number) => void;
   removeFromCart: (id: number) => void;
+  checkout: () => void;
 }
 
 const initialState: CartState = {
@@ -25,6 +26,7 @@ const initialState: CartState = {
   increaseQty: () => {},
   decreaseQty: () => {},
   removeFromCart: () => {},
+  checkout: () => {},
 };
 
 const CartContext = createContext<CartState>(initialState);
@@ -58,6 +60,9 @@ const cartReducer = (state: CartItem[], action: any) => {
     case 'REMOVE_FROM_CART':
       return state.filter((item) => item.id !== action.payload);
 
+    case 'CHECKOUT':
+      localStorage.removeItem('cart');
+      return [];
     default:
       return state;
   }
@@ -77,9 +82,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const increaseQty = (id: number) => dispatch({ type: 'INCREASE_QTY', payload: id });
   const decreaseQty = (id: number) => dispatch({ type: 'DECREASE_QTY', payload: id });
   const removeFromCart = (id: number) => dispatch({ type: 'REMOVE_FROM_CART', payload: id });
+  const checkout = () => dispatch({ type: 'CHECKOUT' });
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, increaseQty, decreaseQty, removeFromCart }}>
+    <CartContext.Provider value={{ cart, addToCart, increaseQty, decreaseQty, removeFromCart, checkout }}>
       {children}
     </CartContext.Provider>
   );

@@ -36,8 +36,8 @@ const Hero = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute top-1/4 left-10 transform ">
-        <h1 className="text-[80px] font-albert ] font-normal ">Gentle<br />Summer style</h1>
-        <p className="text-[20px] font-albert ] font-normal ">Discover the hottest trends and must-have looks</p>
+        <h1 className=" text-lg md:text-[80px] font-albert  font-normal ">Gentle<br />Summer style</h1>
+        <p className="text-sm md:text-[20px] font-albert w-1/2 text-wrap font-normal ">Discover the hottest trends and must-have looks</p>
         </div>
       </div>
       <div className="relative w-full h-">
@@ -47,8 +47,8 @@ const Hero = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute top-1/4 left-10 transform ">
-        <h1 className="text-[80px] font-albert ] font-normal ">Gentle<br />Summer style</h1>
-        <p className="text-[20px] font-albert ] font-normal ">Discover the hottest trends and must-have looks</p>
+        <h1 className=" text-lg md:text-[80px] font-albert  font-normal ">Gentle<br />Summer style</h1>
+        <p className="text-sm md:text-[20px] font-albert w-1/2 text-wrap font-normal ">Discover the hottest trends and must-have looks</p>
         </div>
       </div>
       <div className="relative w-full h-">
@@ -58,8 +58,8 @@ const Hero = () => {
           className="w-full h-full object-cover"
         />
         <div className="absolute top-1/4 left-10 transform ">
-        <h1 className="text-[80px] font-albert ] font-normal ">Gentle<br />Summer style</h1>
-        <p className="text-[20px] font-albert ] font-normal ">Discover the hottest trends and must-have looks</p>
+        <h1 className=" text-lg md:text-[80px] font-albert  font-normal ">Gentle<br />Summer style</h1>
+        <p className="text-sm md:text-[20px] font-albert w-1/2 text-wrap font-normal ">Discover the hottest trends and must-have looks</p>
         </div>
       </div>
     </Carousel>
